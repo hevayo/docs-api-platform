@@ -14,14 +14,6 @@ An MCP Proxy routes Model Context Protocol traffic to MCP servers. MCP is a prot
 
 This page takes you through deploying a proxy and routing your first MCP traffic through it.
 
-:::note[Supported MCP specification versions]
-MCP proxies support the following MCP specification versions:
-
-- `2025-06-18`
-- `2025-11-25`
-- `2026-07-28`
-:::
-
 ## Prerequisites
 
 - A running AI Gateway, with `ADMIN_USERNAME` and `ADMIN_PASSWORD` exported in the shell you run these commands from. See [Install the gateway](../setup-and-deployment/install-the-gateway.mdx).
@@ -61,8 +53,7 @@ spec:
   displayName: Everything
   version: v1.0
   context: /everything
-  specVersions:
-    - "2025-06-18"
+  specVersion: "2025-06-18"
   upstream:
     url: http://everything:3001
   tools: []
@@ -78,7 +69,7 @@ http://localhost:8080/everything/mcp
 
 ## View the MCP proxy in AI Workspace
 
-The gateway syncs the artifacts you deploy on it up to [AI Workspace](docs:ai-workspace/latest/), the control plane for AI traffic across your organization. The `everything-mcp-v1.0` proxy you deployed above appears there without being re-declared, in the `default` project named in its `project-id` annotation. See [Manage Gateway-deployed AI artifacts in AI Workspace](docs:ai-workspace/latest/sync-gateway-created-artifacts/).
+The gateway syncs the artifacts you deploy on it up to [AI Workspace](docs:ai-workspace/1.0.0/), the control plane for AI traffic across your organization. The `everything-mcp-v1.0` proxy you deployed above appears there without being re-declared, in the `default` project named in its `project-id` annotation. See [Manage Gateway-deployed AI artifacts in AI Workspace](docs:ai-workspace/1.0.0/sync-gateway-created-artifacts/).
 
 ## Policies
 
@@ -87,7 +78,7 @@ The policies that authenticate callers, authorize individual tools, restrict and
 ## Next steps
 
 - Stop the sample MCP backend when you're done with it: `docker stop everything` and `docker rm everything`.
-- Govern this proxy alongside every other AI artifact you run: [AI Workspace overview](docs:ai-workspace/latest/)
+- Govern this proxy alongside every other AI artifact you run: [AI Workspace overview](docs:ai-workspace/1.0.0/)
 
 ## Related guides
 
