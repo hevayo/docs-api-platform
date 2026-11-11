@@ -6,7 +6,7 @@ sidebar_label: Serve Multiple Organizations
 sidebar_position: 4
 ---
 
-By default, an API Portal & MCP Hub instance serves exactly one organization: the one named by `[api_portal.organization] handle`. *Multi-organization mode* lets one portal serve every organization under its `organization.portal_id` instead. Each user works in the organization their identity provider (IdP) says they belong to, and the portal creates an organization it hasn't seen before the first time one of its users signs in.
+By default, an API Portal & MCP Hub instance serves exactly one organization: the one named by `[api_portal.organization] handle`. *Multi-organization mode* lets one portal serve every organization in its database instead. Each user works in the organization their identity provider (IdP) says they belong to, and the portal creates an organization it hasn't seen before the first time one of its users signs in.
 
 Use multi-organization mode when one IdP holds many organizations and you want a single portal deployment for all of them—for example, WSO2 Identity Server or Asgardeo with business-to-business (B2B) sub-organizations, or Keycloak with Organizations. This guide is for the administrator who deploys the portal.
 
@@ -31,8 +31,8 @@ org_name     = "org_name"     # optional: names a provisioned organization
 org_handle   = "org_handle"   # optional: its URL handle, taken as is
 
 [api_portal.auth.idp]
-# Required in this mode: the audience bearer tokens must be issued for, usually the
-# client ID. Give several as a comma-separated string or an array.
+# Recommended: the audience bearer tokens must be issued for, usually the client ID.
+# Give several as a comma-separated string or an array.
 audience = "<portal-client-id>"
 ```
 
@@ -42,13 +42,12 @@ audience = "<portal-client-id>"
 
 Check your deployment against these requirements before you turn the mode on:
 
-- **The deployment owns its `portal_id`.** Several instances may share an `organization.portal_id` only as replicas of the same deployment, with identical configuration. Don't run any other portal with the same `portal_id`.
-- **Other portals may share the database under their own `portal_id`.** Portals with different `portal_id` values don't see each other's organizations, and an IdP organization that signs in to two multi-organization portals is provisioned separately in each.
+- **The portal owns its database.** Several instances may share the database only as replicas of the same deployment, with identical configuration. Don't point another, differently configured portal at the same database.
 - **Replicas share `security.encryption_key`.** Any replica may deliver webhooks for any organization.
 - **Provisioning needs verified TLS to the IdP.** See [How organizations are provisioned](#how-organizations-are-provisioned).
-- **`auth.idp.audience` is required.** The portal refuses to start without it in this mode, because a token the IdP issued to any other application would otherwise be accepted for every organization.
+- **Set `auth.idp.issuer` and `auth.idp.audience` (recommended).** List in `audience` every client ID that bearer tokens are issued for, as a comma-separated string or an array.
 
-At startup, the portal logs that it's running in multi-organization mode and lists the organizations it serves, so you can confirm it points at the database and `portal_id` you meant. It also logs an error for organizations that share an IdP reference ID. Sign-ins to those organizations are refused as ambiguous until you change one of them.
+At startup, the portal logs that it's running in multi-organization mode and lists the organizations it serves, so you can confirm it points at the database you meant. It also logs an error for organizations that share an IdP reference ID. Sign-ins to those organizations are refused as ambiguous until you change one of them.
 
 ## How organizations are resolved
 
@@ -116,7 +115,7 @@ The portal reads roles and groups from the access token first, then from the ID 
 
 ## Bearer tokens for the Management API
 
-The portal verifies bearer tokens exactly as in single-organization mode: signed by the keys at `auth.idp.jwks_url` or the pinned `auth.idp.certificate`, and issued for one of the values in `auth.idp.audience`, which multi-organization mode requires: the portal doesn't start without it. When `auth.idp.issuer` is set, the token must also be issued by it, which is recommended. The organization is then the one the token's organization claim names.
+The portal verifies bearer tokens exactly as in single-organization mode: signed by the keys at `auth.idp.jwks_url` or the pinned `auth.idp.certificate`. When `auth.idp.issuer` is set, the token must be issued by it, and when `auth.idp.audience` is set, the token must be issued for one of its values. Setting both is recommended. The organization is then the one the token's organization claim names.
 
 A token issued under an organization's own issuer—for example, one obtained directly from a WSO2 Identity Server or Asgardeo organization's token endpoint, `.../o/<org-id>/oauth2/token`—is accepted only when you describe those issuers, as in [Accept tokens from per-organization issuers](#accept-tokens-from-per-organization-issuers). Browser sign-ins to every organization go through the configured issuer, so they don't need it.
 
@@ -152,9 +151,9 @@ Set `template_org_claim` when you key organizations on a different claim from th
 
 Keep these in mind:
 
-- The token's audience is still checked against `auth.idp.audience`. A token issued to an organization's own copy of the application carries that copy's client ID, so list those client IDs there too.
+- A token issued to an organization's own copy of the application carries that copy's client ID as its audience. If you set `auth.idp.audience`, list those client IDs there too.
 - Per-organization issuers need a JWKS URL. With `auth.idp.certificate` set, bearer tokens are verified against that certificate only.
-- `issuer_template` and `jwks_url_template` must each contain exactly one `{org}`, and `jwks_url_template` must use `https`, like `auth.idp.jwks_url`; otherwise, the portal doesn't start.
+- `issuer_template` and `jwks_url_template` must each contain exactly one `{org}`, and `jwks_url_template` must be a valid URL once `{org}` is filled in; otherwise, the portal doesn't start.
 
 ## Webhooks
 
@@ -162,7 +161,7 @@ In multi-organization mode, the portal delivers every organization's events, and
 
 ## Publish a provisioned organization's catalog
 
-APIs published from the Platform API always land in the configured organization. A provisioned organization gets its APIs and MCP servers through the [Management API](../../rest-api/management-api/overview.mdx), with a token issued for one of its administrators.
+A provisioned organization gets its APIs and MCP servers through the [Management API](../../rest-api/management-api/overview.mdx), with a token issued for one of its administrators.
 
 ## Claim names for common identity providers
 

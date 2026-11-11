@@ -102,11 +102,11 @@ The portal generates keys through the UI for REST, WebSocket, and WebSub APIs wh
 
 ## OAuth2 credentials
 
-For APIs that use OAuth2, developers create an OAuth application directly in a [key manager](./admin-settings/integrations/key-manager-integration/key-manager-integration.mdx), then link the resulting **client ID** to an application in the portal. The portal never sees or stores the client secret—it's supplied by the developer each time they generate an access token, and the portal proxies that token request to the key manager. See [Consume an API Secured with OAuth2](./consume-an-api/oauth2.mdx).
+For APIs that use OAuth2, developers create an OAuth application directly in a [key manager](./admin-settings/integrations/key-manager-integration.mdx), then link the resulting **client ID** to an application in the portal. The portal never sees or stores the client secret—it's supplied by the developer each time they generate an access token, and the portal proxies that token request to the key manager. See [Consume an API Secured with OAuth2](./consume-an-api/oauth2.mdx).
 
 ## Key manager
 
-A **key manager** is an external OAuth2 authorization server configured for the organization. Developers create and own their OAuth applications there; the portal only stores a reference to the client ID and proxies `client_credentials` token requests to the key manager's token endpoint. You can configure one or more key managers for the organization. See [Key Manager Integration](./admin-settings/integrations/key-manager-integration/key-manager-integration.mdx).
+A **key manager** is an external OAuth2 authorization server configured for the organization. Developers create and own their OAuth applications there; the portal only stores a reference to the client ID and proxies `client_credentials` token requests to the key manager's token endpoint. You can configure one or more key managers for the organization. See [Key Manager Integration](./admin-settings/integrations/key-manager-integration.mdx).
 
 ## Webhook subscriber
 

@@ -100,7 +100,7 @@ roles        = "roles"
 [api_portal.auth.idp]
 client_id     = "<api-portal-client-id>"
 client_secret = '{{ env "APIP_AP_AUTH_IDP_CLIENT_SECRET" }}'
-audience      = "<api-portal-client-id>"   # required in multi-organization mode
+audience      = "<api-portal-client-id>"   # recommended
 issuer        = "https://localhost:9443/oauth2/token"
 scope         = "openid profile email roles"
 authorization_url   = "https://localhost:9443/oauth2/authorize"
@@ -146,7 +146,7 @@ jwks_url_template  = "https://host.docker.internal:9443/o/{org}/oauth2/jwks"
 template_org_claim = "org_id"   # {org} is the org_id; this example keys organizations on org_handle
 ```
 
-Like `issuer`, `issuer_template` uses the host name Identity Server puts in its tokens. Like `jwks_url`, `jwks_url_template` uses the host the container reaches. These tokens carry the client ID of the organization's own copy of **API Portal** as their audience, so add each organization's client ID, shown on that shared app's **Protocol** tab, to `audience`. See [Accept tokens from per-organization issuers](./multi-organization.mdx#accept-tokens-from-per-organization-issuers).
+Like `issuer`, `issuer_template` uses the host name Identity Server puts in its tokens. Like `jwks_url`, `jwks_url_template` uses the host the container reaches. If you set `audience`, also add the client ID of each organization's copy of **API Portal**, shown on that shared app's **Protocol** tab, because these tokens carry it as their audience. See [Accept tokens from per-organization issuers](./multi-organization.mdx#accept-tokens-from-per-organization-issuers).
 
 ### Trust the Identity Server certificate
 
@@ -175,18 +175,15 @@ Find it first: it's the organization that carries the root organization's claim 
 ```sql
 SELECT uuid, handle, display_name, idp_ref_id FROM organizations
  WHERE idp_ref_id IN ('carbon.super', '10084a8d-113f-4211-a0d5-efe36b082211')
-   AND handle <> 'default'
-   AND portal_id = '<your-portal-id>';
+   AND handle <> 'default';
 ```
 
 Then retire it by the `uuid` the query returned:
 
 ```sql
 UPDATE organizations SET idp_ref_id = 'retired-super'
- WHERE uuid = '<uuid-from-the-query>' AND portal_id = '<your-portal-id>';
+ WHERE uuid = '<uuid-from-the-query>';
 ```
-
-Use your deployment's `organization.portal_id`, so the statements can't touch another portal's organizations in a shared database.
 :::
 
 Restart the portal after you change the configuration:
@@ -222,7 +219,7 @@ The organization's administrator opens the configured organization's page, `http
 
 Signed in as the organization's administrator, set up the organization under **Settings**, as you would for any organization:
 
-- [Key manager integration](../../admin-settings/integrations/key-manager-integration/key-manager-integration.mdx): an M2M application created in the `acme` organization gives its applications tokens from `https://<is-host>:9443/o/<organization-id>/oauth2/token`. If you recreate the Identity Server organization, its ID changes, so update the token endpoint to match.
+- [Key manager integration](../../admin-settings/integrations/key-manager-integration.mdx): an M2M application created in the `acme` organization gives its applications tokens from `https://<is-host>:9443/o/<organization-id>/oauth2/token`. If you recreate the Identity Server organization, its ID changes, so update the token endpoint to match.
 - [Subscription plans](../../admin-settings/organization/subscription-plans.mdx): the organization starts with the default plans.
 - [Webhooks](../../admin-settings/integrations/webhook-integration.mdx): subscribers registered here receive only `acme`'s events.
 
