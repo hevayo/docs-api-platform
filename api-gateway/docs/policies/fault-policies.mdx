@@ -54,7 +54,7 @@ A policy can be used as a fault policy only if it supports the fault path. The g
 [chain-build] skipping fault-policies policy that does not implement OnFault
 ```
 
-The [Log Message](https://wso2.com/api-platform/policy-hub/policies/log-message) policy supports the fault path from **v1.1.0**. The gateway image ships with an earlier version. The default `build.yaml` lists `log-message` as `@v1`, which resolves to the latest v1 release, so rebuilding the gateway image picks up v1.1.0 or later. For more information, see [Add or Update Policies in a Gateway](./add-or-update-policies.mdx).
+The [Log Message](https://wso2.com/api-platform/policy-hub/policies/log-message) policy supports the fault path from **v1.1.0**. If your gateway image includes an earlier version of Log Message, rebuild the gateway image. The default `build.yaml` lists `log-message` as `@v1`, which resolves to the latest v1 release, so the rebuild picks up v1.1.0 or later. For more information, see [Add or Update Policies in a Gateway](./add-or-update-policies.mdx).
 
 The [Error Response Formatter](https://wso2.com/api-platform/policy-hub/policies/error-response-formatter) policy is a fault policy that renders the error the client receives in a shape you choose. It is not included in the gateway image. To use it, add it to the `policies` list in your gateway's `build.yaml` and rebuild the gateway image:
 
