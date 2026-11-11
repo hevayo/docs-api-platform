@@ -1,0 +1,5 @@
+label: Monitor and Insights
+position: 12
+customProps:
+  icon: octicons/graph-16
+  editions: cloud

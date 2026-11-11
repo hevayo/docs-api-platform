@@ -1,0 +1,5 @@
+label: API Platform Samples
+position: 16
+customProps:
+  icon: octicons/file-code-16
+  editions: cloud

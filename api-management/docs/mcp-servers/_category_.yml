@@ -1,0 +1,5 @@
+label: MCP Servers
+position: 6
+customProps:
+  icon: octicons/server-16
+  editions: cloud

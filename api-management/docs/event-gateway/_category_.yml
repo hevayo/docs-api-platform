@@ -1,0 +1,5 @@
+label: Event Gateway
+position: 10
+customProps:
+  icon: octicons/webhook-16
+  editions: cloud

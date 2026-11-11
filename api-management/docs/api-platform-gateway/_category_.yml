@@ -1,0 +1,5 @@
+label: API Gateway
+position: 11
+customProps:
+  icon: octicons/globe-16
+  editions: cloud
