@@ -2,19 +2,23 @@
 title: Configure Traffic Logging
 description: Traffic Logging writes a single structured JSON line for every request handled by the gateway — who called what, the status code, latencies,…  # generated from the first paragraph; a writer should improve it
 type: how-to
-sidebar_label: Overview
-sidebar_position: 1
+sidebar_label: Traffic Logging
+sidebar_position: 2
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::info[Note]
+The `file` and `http` sinks are available from **update level 1.2.0.2** onwards(released on 23rd August 2026). On an earlier
+1.2.0 update level, `stdout` is the only sink, and `traffic_logging.outputs`,
+`[traffic_logging.file]`, and `[traffic_logging.http]` do not apply.
+:::
+
 ## Overview
 
 Traffic Logging writes a single structured JSON line for every request handled by the gateway — who
 called what, the status code, latencies, request/response headers, and (optionally) bodies.
-
-To write each line in your own JSON layout instead, see [Custom traffic log format](./custom-traffic-log-format.mdx).
 
 Each line is written to the **sinks** you name in `traffic_logging.outputs`:
 
@@ -145,6 +149,10 @@ controller and the policy-engine can never disagree on it. `buffer_flush_interva
 
 ## The `file` sink
 
+:::info[Requires update level 1.2.0.2]
+This sink is available from **update level 1.2.0.2** onwards.
+:::
+
 Appends each line to a rotating file. Use it to keep payloads off the container log and therefore out
 of `kubectl logs` and out of any DaemonSet shipping container logs onward.
 
@@ -245,6 +253,10 @@ onward. To ship them anyway, mount the same volume into a sidecar collector.
 :::
 
 ## The `http` sink
+
+:::info[Requires update level 1.2.0.2]
+This sink is available from **update level 1.2.0.2** onwards.
+:::
 
 Batches lines and `POST`s them to an endpoint you name. Nothing is written to disk and no co-located
 collector is required.
@@ -560,15 +572,12 @@ Available variables:
 
 | Namespace | Variables |
 |---|---|
-| Request | `request.path`, `request.pathTemplate`, `request.method`, `request.id`, `request.timestamp` (UTC), `request.header['<name>']` (masked per `masked_headers`), `request.body` (requires `collector.request_body`, cut to `max_payload_size`) |
-| Response | `response.status`, `response.header['<name>']` (masked per `masked_headers`), `response.body` (requires `collector.response_body`, cut to `max_payload_size`) |
+| Request | `request.path`, `request.method`, `request.id`, `request.header['<name>']` (masked per `masked_headers`) |
+| Response | `response.status`, `response.header['<name>']` (masked per `masked_headers`) |
 | API | `api.id`, `api.name`, `api.version`, `api.context`, `api.kind`, `project.id` |
 | Target | `target.statusCode`, `target.destination` |
 | Application | `application.id`, `application.name`, `application.owner`, `application.keyType` — populated only when an auth policy that stamps application identity (currently `api-key-auth`) ran |
 | Auth | `auth.subject`, `auth.type`, `auth.issuer`, `auth.credential_id`, `auth.token_id`, `auth.audience` (list), `auth.scopes` (list), `auth.property['<claim>']` (map), `auth.authenticated`, `auth.authorized` |
-| Client | `client.ip`, `client.userAgent` |
-| Error | `error.category`, `error.errorCode`, `error.errorMessage`, `error.wso2ErrorCode`, `error.type`, `error.direction`, `error.summary`, `error.policy`, `error.policyPhase`, `error.source`, `error.originalStatus`, `error.jsonRpcCode`, `error.guardrail.name`, `error.guardrail.action`, `error.guardrail.reason`. These have a value only when the request failed. |
-| Latencies | `latencies.duration`, `latencies.backendLatency`, `latencies.requestMediationLatency`, `latencies.responseMediationLatency`, in microseconds. Use `convertUnit(<latency>, '<unit>')` with `'ns'`, `'us'`, `'ms'` or `'s'` for another unit, for example `convertUnit(latencies.duration, 'ms')`. |
 | Generic metadata | `metadata['<key>']` — any key any policy (including third-party/Python policies) has written into shared request metadata |
 
 :::note
