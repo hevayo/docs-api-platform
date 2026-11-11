@@ -1,0 +1,23 @@
+# Doc space manifest of API Management (schemas/docspace.schema.json in the Platform).
+# Written once by tools/onboard-mkdocs/convert-api-platform.mjs; edit it by hand on docs-v2/main.
+schemaVersion: 1
+slug: api-management
+displayName: API Management
+formerNames:
+  - API Platform
+  - Bijira
+home: api-management
+owners:
+  team: api-management-docs
+repo: hevayo/docs-api-platform
+editLinks: true
+issues:
+  repo: wso2/docs-api-platform
+editions:
+  - id: cloud
+  - id: self-hosted
+subDocSpaces:
+  - api-gateway
+  - ai-gateway
+  - api-portal
+  - ai-workspace

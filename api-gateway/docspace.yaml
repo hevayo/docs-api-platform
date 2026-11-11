@@ -1,0 +1,25 @@
+# Doc space manifest of API Gateway (schemas/docspace.schema.json in the Platform).
+# Written once by tools/onboard-mkdocs/convert-api-platform.mjs; edit it by hand on docs-v2/main.
+schemaVersion: 1
+slug: api-gateway
+displayName: API Gateway
+editionNames:
+  selfHosted: API Gateway {version}
+in: api-management
+home: api-management
+owners:
+  team: api-management-docs
+repo: hevayo/docs-api-platform
+editLinks: true
+issues:
+  repo: wso2/docs-api-platform
+latest: 1.2.0
+editions:
+  - id: 1.2.0
+    support: lts
+  - id: 2026.10.0
+    support: sts
+  - id: 1.1.0
+    support: lts
+  - id: 1.0.0
+    support: lts

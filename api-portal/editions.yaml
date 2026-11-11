@@ -1,0 +1,5 @@
+# The {edition.*} variables of API Portal: one block for every Self-hosted version.
+# Written once by tools/onboard-mkdocs/convert-api-platform.mjs; edit it by hand on docs-v2/main.
+self-hosted:
+  displayName: API Portal {version}
+  productName: WSO2 API Portal
