@@ -52,7 +52,7 @@ For more information, see the [API Platform Cloud overview](docs:api-management/
 
 The API Platform Console provides the web UI for API Platform Cloud. You use the console to create projects, API Proxies, and MCP Servers, and to manage your organization.
 
-For more information, see the [API Proxy quick start guide](docs:api-management/cloud/introduction/quick-start-guide/), [Design and publish MCP servers](docs:api-management/cloud/mcp-servers/design-mcp-servers/), and [Organizations](docs:api-management/cloud/introduction/concepts/organization/).
+For more information, see the [API Proxy quick start guide](docs:api-management/cloud/introduction/quick-start-guide/), [Design and publish MCP servers](docs:api-management/cloud/mcp-servers/design-mcp-servers/), and [Organizations](docs:api-management/cloud/bijira-concepts/organization/).
 
 ### API Portal
 
@@ -95,7 +95,7 @@ For more information, see [Create an application](docs:api-management/cloud/devp
 
 In the control plane, you design and manage APIs and AI configuration. The control plane doesn't process API traffic. Instead, the gateways in the [data plane](#data-plane) run on the control plane's configuration. The API Control Plane and AI Workspace both act as control planes.
 
-For more information, see [Data planes](docs:api-management/cloud/introduction/concepts/data-planes/).
+For more information, see [Data planes](docs:api-management/cloud/bijira-concepts/data-planes/).
 
 ## D
 
@@ -109,7 +109,7 @@ Your gateways run in the data plane and process API traffic there, based on conf
 
 API Platform Cloud also distinguishes cloud data planes from private data planes. Cloud data planes use shared, multi-tenant infrastructure. Private data planes use dedicated infrastructure for a single organization.
 
-For more information, see [Data planes](docs:api-management/cloud/introduction/concepts/data-planes/).
+For more information, see [Data planes](docs:api-management/cloud/bijira-concepts/data-planes/).
 
 ### Developer Portal
 
@@ -126,7 +126,7 @@ For more information, see [API Portal](#api-portal) and the [API Manager overvie
 
 Gateway federation brings APIs from external gateways under one API Platform control plane. You can discover those APIs, apply governance, and publish them to the Developer Portal.
 
-For more information, see the [gateway federation overview](docs:api-management/cloud/api-platform-gateway/third-party-gateways/overview/).
+For more information, see the [gateway federation overview](docs:api-management/cloud/federation/overview/).
 
 ### GenAI Application
 
@@ -204,7 +204,7 @@ For more information, see [LLM proxy](docs:ai-gateway/1.2.0/gateway-artifacts/ll
 
 The MCP Hub gives developers a visual catalog for browsing MCP servers. The MCP registry powers the MCP Hub.
 
-For more information, see [Browse the MCP Hub](docs:api-management/cloud/ai-workspace/mcp-registry/browse-mcp-hub/).
+For more information, see [Browse the MCP Hub](docs:api-management/cloud/mcp-servers/browse-mcp-hub/).
 
 ### MCP Proxy
 
@@ -216,7 +216,7 @@ For more information, see [MCP proxy](docs:ai-gateway/1.2.0/gateway-artifacts/mc
 
 The MCP registry catalogs MCP servers so that clients can discover them. Each organization has its own registry. When you publish an MCP Proxy from AI Workspace, API Platform registers the MCP Proxy in the registry. AI clients query the registry through the MCP Registry API.
 
-For more information, see the [MCP registry overview](docs:api-management/cloud/ai-workspace/mcp-registry/).
+For more information, see the [MCP registry overview](docs:api-management/cloud/mcp-servers/mcp-registry/).
 
 ### MCP Server
 
@@ -236,7 +236,7 @@ For more information, see the [MCP proxies overview](docs:ai-workspace/1.0.0/mcp
 
 An organization groups users and their resources in a top-level container. In API Platform Cloud, every user belongs to an organization. Users and resources in one organization can't access another organization unless someone invites those users.
 
-For more information, see [Organizations](docs:api-management/cloud/introduction/concepts/organization/).
+For more information, see [Organizations](docs:api-management/cloud/bijira-concepts/organization/).
 
 ## P
 
@@ -256,7 +256,7 @@ For more information, see the [Policy Hub overview](./policy-hub/overview.mdx).
 
 A project groups API Proxies and MCP Servers in API Platform Cloud. The components in a project typically deliver one business capability together. Each project runs in its own Kubernetes namespace, separate from other projects.
 
-For more information, see [Projects](docs:api-management/cloud/introduction/concepts/project/).
+For more information, see [Projects](docs:api-management/cloud/bijira-concepts/project/).
 
 ## S
 
@@ -266,7 +266,7 @@ A Self-Hosted Gateway is an API Gateway or AI Gateway that runs in your own infr
 
 In a self-managed deployment, gateways also run in your infrastructure, but they connect to a self-hosted control plane, such as a self-hosted [AI Workspace](#ai-workspace).
 
-For more information, see [Getting started with the Self-Hosted Gateway](docs:api-management/cloud/api-platform-gateway/self-hosted-gateway/getting-started/) and [Set up an AI Gateway](docs:api-management/cloud/ai-workspace/ai-gateways/setting-up/).
+For more information, see [Getting started with the Self-Hosted Gateway](docs:api-management/cloud/api-platform-gateway/getting-started/) and [Set up an AI Gateway](docs:api-management/cloud/ai-workspace/ai-gateways/setting-up/).
 
 ### Semantic cache
 
