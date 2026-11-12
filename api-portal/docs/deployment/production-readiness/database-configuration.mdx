@@ -3,6 +3,7 @@ title: Database Configuration
 description: 'Set up the database for a production API Portal & MCP Hub deployment on any platform: schema, password, TLS verification, and connection-pool sizing.'
 type: how-to
 sidebar_position: 2
+slug: "/deployment/database-configuration"
 ---
 
 The database is what makes a replicated deployment possible: it holds the catalog, applications, subscriptions, credentials, **user sessions**, and the webhook event queue. Every portal pod reads and writes the same one, which is why no pod needs sticky sessions or a shared filesystem.

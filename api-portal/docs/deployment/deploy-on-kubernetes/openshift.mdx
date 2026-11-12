@@ -4,6 +4,7 @@ description: Install the API Portal and the Platform API on Red Hat OpenShift wi
 type: how-to
 sidebar_label: OpenShift
 sidebar_position: 2
+slug: "/deployment/openshift"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -179,7 +180,7 @@ For optional inputs, such as database passwords and the OpenID Connect (OIDC) cl
     **Images**: use the update-level images.
 
     :::note[Use Platform API 0.16.0.4 and API Portal 1.0.0.7 or later]
-    These update levels are verified on OpenShift. With a WSO2 subscription, create the registry pull Secret in the project, as described in [WSO2 Subscription Users](docs:api-gateway/1.2.0/deployment/production-deployment/high-availability-production-deployment/#wso2-subscription-users), and set it in `global.wso2.subscription.imagePullSecret`. The chart then pulls from `registry.wso2.com/wso2-api-platform/`, but it keeps the default tags, so set the update-level tags too:
+    These update levels are verified on OpenShift. With a WSO2 subscription, create the registry pull Secret in the project, as described in [WSO2 Subscription Users](docs:api-gateway/1.2.0/deployment/high-availability-production-deployment/#wso2-subscription-users), and set it in `global.wso2.subscription.imagePullSecret`. The chart then pulls from `registry.wso2.com/wso2-api-platform/`, but it keeps the default tags, so set the update-level tags too:
 
     ```yaml
     global:
@@ -1028,5 +1029,5 @@ The API Portal chart doesn't restart the pod when only its configuration changes
 
 - [Security hardening](../production-readiness/security-hardening.mdx)
 - [Database configuration](../production-readiness/database-configuration.mdx)
-- [Deploy the AI Workspace on OpenShift](docs:ai-workspace/1.0.0/production/deploy-on-kubernetes/openshift/)
+- [Deploy the AI Workspace on OpenShift](docs:ai-workspace/1.0.0/production/openshift/)
 - [Deploy the gateway with the Gateway Operator on OpenShift](docs:api-gateway/1.2.0/deployment/deployment-modes/openshift/gateway-operator/)
