@@ -232,7 +232,7 @@ This guide puts the gateway settings in a ConfigMap. To apply a setting to every
     The operator's default gateway values, and gateway chart 1.2.4, use the public `1.2.0` images, so set the update-level images in the ConfigMap, as the following note shows.
 
     :::note[Use update level 1.2.0.19 or later]
-    Create the registry pull Secret in the gateway's project, as described in [WSO2 Subscription Users](docs:api-gateway/1.2.0/deployment/production-deployment/high-availability-production-deployment/#wso2-subscription-users). Then add the following to `values.yaml` in the ConfigMap. Setting `wso2.subscription.imagePullSecret` makes the chart pull from `registry.wso2.com/wso2-api-platform/`, but it keeps the default `1.2.0` tags, so set the update-level tags too:
+    Create the registry pull Secret in the gateway's project, as described in [WSO2 Subscription Users](docs:api-gateway/1.2.0/deployment/high-availability-production-deployment/#wso2-subscription-users). Then add the following to `values.yaml` in the ConfigMap. Setting `wso2.subscription.imagePullSecret` makes the chart pull from `registry.wso2.com/wso2-api-platform/`, but it keeps the default `1.2.0` tags, so set the update-level tags too:
 
     ```yaml
     wso2:

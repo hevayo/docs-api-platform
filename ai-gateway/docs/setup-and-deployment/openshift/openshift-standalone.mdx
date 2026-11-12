@@ -181,7 +181,7 @@ The gateway controller encrypts sensitive data at rest with an AES-256 key. The 
     **Gateway images:** set the update-level images from [Step 4](#step-4).
 
     :::note[Use update level 1.2.0.19 or later]
-    With a WSO2 subscription, create the registry pull Secret as described in [WSO2 Subscription Users](docs:api-gateway/1.2.0/deployment/production-deployment/high-availability-production-deployment/#wso2-subscription-users), and set it in `wso2.subscription.imagePullSecret`. The chart then pulls from `registry.wso2.com/wso2-api-platform/`, but it keeps the default `1.2.0` tags, so set the update-level tags too:
+    With a WSO2 subscription, create the registry pull Secret as described in [WSO2 Subscription Users](docs:api-gateway/1.2.0/deployment/high-availability-production-deployment/#wso2-subscription-users), and set it in `wso2.subscription.imagePullSecret`. The chart then pulls from `registry.wso2.com/wso2-api-platform/`, but it keeps the default `1.2.0` tags, so set the update-level tags too:
 
     ```yaml
     wso2:
@@ -741,7 +741,7 @@ Then set `gateway.gatewayRuntime.policies.llmPricing.configMapName: llm-model-pr
 
 To govern the gateway from AI Workspace, follow [Connect to AI Workspace](../production-deployment/control-plane-connection.mdx), with these OpenShift details:
 
-- **The control plane address.** When AI Workspace runs on OpenShift, its Platform API is exposed through a Route on port 443, created by the `ai-workspace` chart 1.0.1 or later when `platform-api.openshift.enabled` is `true`. See [Deploy AI Workspace on OpenShift](docs:ai-workspace/1.0.0/production/deploy-on-kubernetes/openshift/). Use that Route's host in `gateway.controller.controlPlane.host`, as `<PLATFORM_API_ROUTE_HOST>:443`. Find it with:
+- **The control plane address.** When AI Workspace runs on OpenShift, its Platform API is exposed through a Route on port 443, created by the `ai-workspace` chart 1.0.1 or later when `platform-api.openshift.enabled` is `true`. See [Deploy AI Workspace on OpenShift](docs:ai-workspace/1.0.0/production/openshift/). Use that Route's host in `gateway.controller.controlPlane.host`, as `<PLATFORM_API_ROUTE_HOST>:443`. Find it with:
 
     ```bash
     oc get route -n <AI_WORKSPACE_PROJECT> \
