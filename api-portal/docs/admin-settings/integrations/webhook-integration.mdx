@@ -4,6 +4,7 @@ description: Register endpoints to receive signed, real-time notifications when 
 type: how-to
 sidebar_label: Webhook Integration
 sidebar_position: 2
+slug: "/admin-settings/webhook-integration"
 ---
 
 The API Portal & MCP Hub doesn't talk to a gateway directly. Instead it publishes a signed HTTP POST to every endpoint you register whenever an application, API key, or subscription changes. Each delivery is signed when the subscriber has a secret; without one it arrives unsigned. Whatever is behind that endpoint decides what to do next. Most deployments register the Platform API control plane, which persists the change and propagates it to the gateways the API is deployed to, but a gateway or a handler of your own can subscribe just as well.
