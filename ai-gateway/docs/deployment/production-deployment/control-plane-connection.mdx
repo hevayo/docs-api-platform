@@ -9,7 +9,7 @@ sidebar_position: 6
 This step is optional. The gateway routes large language model (LLM) and Model Context Protocol (MCP) traffic without a control plane.
 :::
 
-A control plane connection gives the gateway a central place to receive artifacts from and report state to. AI Gateway 1.0.0 connects over a persistent WebSocket connection. It supports a [WSO2 API Manager (APIM) control plane](https://apim.docs.wso2.com/en/latest/api-gateway/platform-gateway/getting-started/) and an [API Platform Cloud control plane](docs:api-management/cloud/api-platform-gateway/self-hosted-gateway/getting-started/).
+A control plane connection gives the gateway a central place to receive artifacts from and report state to. AI Gateway 1.0.0 connects over a persistent WebSocket connection. It supports a [WSO2 API Manager (APIM) control plane](https://apim.docs.wso2.com/en/latest/api-gateway/platform-gateway/getting-started/) and an [API Platform Cloud control plane](docs:api-management/cloud/api-platform-gateway/getting-started/).
 
 :::warning[AI Workspace needs AI Gateway 1.2.0]
 [AI Workspace](docs:ai-workspace/1.0.0/) is the control plane for governing LLM providers, App LLM proxies, MCP proxies, and AI policies across an organization. It works with gateway version 1.2 and above. A 1.0.0 gateway cannot register with it. To govern this gateway from AI Workspace, upgrade to [AI Gateway 1.2.0](docs:ai-gateway/1.2.0/setup-and-deployment/production-deployment/control-plane-connection/) first.
