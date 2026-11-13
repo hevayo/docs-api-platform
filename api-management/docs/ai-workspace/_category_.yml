@@ -1,0 +1,6 @@
+label: AI Workspace
+position: 9
+customProps:
+  icon: octicons/project-roadmap-16
+  divider: true
+  editions: cloud

@@ -1,0 +1,5 @@
+label: Workflows
+position: 14
+customProps:
+  icon: octicons/workflow-16
+  editions: cloud

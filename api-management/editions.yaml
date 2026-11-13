@@ -1,0 +1,8 @@
+# The {edition.*} variables of API Management: Cloud, and the unversioned Self-hosted Edition.
+# Written once by tools/onboard-mkdocs/convert-api-platform.mjs; edit it by hand on docs-v2/main.
+cloud:
+  displayName: API Management Cloud
+  productName: WSO2 API Platform
+self-hosted:
+  displayName: API Management Self-hosted
+  productName: WSO2 API Platform
