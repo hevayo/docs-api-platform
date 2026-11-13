@@ -1,0 +1,6 @@
+label: API Manager
+position: 18
+customProps:
+  icon: octicons/sliders-16
+  divider: true
+  editions: self-hosted

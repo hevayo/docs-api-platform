@@ -1,0 +1,8 @@
+# API Portal 1.0.0.
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: api-portal
+id: 1.0.0
+name: API Portal 1.0.0
+variables:
+  productName: WSO2 API Portal

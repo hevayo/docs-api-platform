@@ -1,0 +1,8 @@
+# AI Gateway: the next version, not yet released (no listed Edition).
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: ai-gateway
+id: next
+name: AI Gateway next
+variables:
+  productName: WSO2 AI Gateway

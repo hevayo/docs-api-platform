@@ -1,0 +1,8 @@
+# AI Gateway 2026.09.24.
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: ai-gateway
+id: 2026.09.24
+name: AI Gateway 2026.09.24
+variables:
+  productName: WSO2 AI Gateway

@@ -1,0 +1,13 @@
+# API Management: cloud and self-hosted, from one tree.
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: api-management
+editions:
+  - id: cloud
+    name: API Management Cloud
+    variables:
+      productName: WSO2 API Platform
+  - id: self-hosted
+    name: API Management Self-hosted
+    variables:
+      productName: WSO2 API Platform

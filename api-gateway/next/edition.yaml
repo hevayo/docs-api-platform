@@ -1,0 +1,8 @@
+# API Gateway: the next version, not yet released (no listed Edition).
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: api-gateway
+id: next
+name: API Gateway next
+variables:
+  productName: WSO2 API Gateway

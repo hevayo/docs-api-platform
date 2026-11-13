@@ -1,0 +1,5 @@
+label: Test API Proxy
+position: 5
+customProps:
+  icon: octicons/bug-16
+  editions: cloud
