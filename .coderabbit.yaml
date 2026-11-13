@@ -16,7 +16,7 @@ reviews:
     languagetool:
       level: "picky"
   path_instructions:
-    - path: "en/docs/**/*.md"
+    - path: "*/docs/**/*.mdx"
       instructions: >-
         Apply the WSO2 documentation style rules in .claude/rules/doc-*.md strictly.
         Report every violation, including low-severity ones.

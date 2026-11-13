@@ -1,0 +1,8 @@
+# API Portal: the next version, not yet released (no listed Edition).
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: api-portal
+id: next
+name: API Portal next
+variables:
+  productName: WSO2 API Portal

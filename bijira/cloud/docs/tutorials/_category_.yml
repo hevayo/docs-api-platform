@@ -1,0 +1,5 @@
+label: Tutorials
+position: 15
+customProps:
+  icon: octicons/mortar-board-16
+  editions: cloud

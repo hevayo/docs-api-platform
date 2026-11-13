@@ -1,0 +1,58 @@
+---
+title: Documents
+description: Add guides, samples, and support resources to an API proxy so consumers can understand and use it in the API Portal and AI Hub.
+type: reference
+sidebar_position: 4
+---
+
+When API consumers browse APIs in the API Portal and AI Hub, they need more than the API name and version to decide whether to use an API. Documents let you provide that information, such as,
+
+- A brief description of the API.
+- How to invoke the API.
+- The limitations or restrictions of the API.
+- Version history.
+
+You write documents in Markdown and add them to the API before you publish it. You can add as many documents as you need.
+
+## Create a Document
+
+To add a document to an API, follow the steps given below.
+
+1. Sign in to the [API Control Plane Console](https://console.cloud.choreolabs.com/api-management/).
+2. In the header, select the project from the **Projects** list and the API from the **APIs** list.
+3. In the left navigation menu, click **Develop**, then click **Documents**.
+4. Click **Create Document**.
+5. On the **Create Document** page, provide the following details.
+
+    - **Document type:** Select the type of document, for example, **How To**. For the available types, see [Document Types](#document-types).
+    - **Custom type:** Shown only when the document type is **Other**. Optionally, enter your own type name, for example, `Changelog`.
+    - **Name:** Enter a name for the document, for example, `Getting started`. Each document of an API needs a unique name.
+    - **Content:** Write the document content in Markdown.
+
+    To choose how the editor is displayed, select **Source** to show only the Markdown, **Split** to show the Markdown and a preview side by side, or **Preview** to show only the rendered document.
+
+    ![Create Document page with the How To document type, a document name, and Markdown content shown side by side with its preview in Split view](../../../assets/_static/img/cloud/develop-api-proxy/documents/create-document.png)
+
+6. Click **Create**.
+
+The document appears under **All documents**, grouped by document type. Click a document to view its content.
+
+![Documents page listing Reading List API Doc under How To in All documents, with the rendered document and edit and delete icons on the right](../../../assets/_static/img/cloud/develop-api-proxy/documents/documents-list.png)
+
+To add more documents, click **Create Document** at the top of the page.
+
+## Edit or Delete a Document
+
+1. On the **Documents** page, under **All documents**, click the document.
+2. Do one of the following.
+
+    - To edit the document, click the edit (pencil) icon. On the **Edit Document** page, change the name or content, and click **Save**.
+    - To delete the document, click the delete (trash) icon and confirm the deletion.
+
+You can't change the type of an existing document. To use a different type, create a new document with that type, and delete the old one.
+
+## Document Types
+
+The document types are **How To** (the default), **Samples & SDK**, **Public Forum**, **Support Forum**, and **Other**. Documents are grouped by type under **All documents**.
+
+If none of the types fit, select **Other** and enter a **Custom type**, such as `Changelog`. Documents with the same custom type are grouped under that name. If you leave **Custom type** empty, the document is grouped under **Other**.

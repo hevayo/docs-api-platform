@@ -1,0 +1,4 @@
+# Page moves (from → to, paths under docs/ without the extension) and legacy URL maps of bijira.
+# Written by tools/onboard-mkdocs/split-edition.mjs: bijira is api-management's cloud Edition on its own.
+moves: []
+legacy: []

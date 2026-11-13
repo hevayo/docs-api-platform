@@ -1,0 +1,8 @@
+# AI Workspace 1.0.0.
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: ai-workspace
+id: 1.0.0
+name: AI Workspace 1.0.0
+variables:
+  productName: WSO2 AI Workspace

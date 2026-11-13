@@ -1,0 +1,5 @@
+# API Control Plane: the unversioned Doc space's content.
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: api-control-plane
+name: API Control Plane

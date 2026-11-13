@@ -1,0 +1,5 @@
+label: Administer
+position: 13
+customProps:
+  icon: octicons/lock-16
+  editions: cloud

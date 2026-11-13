@@ -1,0 +1,8 @@
+# AI Workspace: the next version, not yet released (no listed Edition).
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: ai-workspace
+id: next
+name: AI Workspace next
+variables:
+  productName: WSO2 AI Workspace

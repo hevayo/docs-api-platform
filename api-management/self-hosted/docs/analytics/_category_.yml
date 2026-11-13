@@ -1,0 +1,5 @@
+label: Analytics
+position: 24
+customProps:
+  icon: octicons/graph-16
+  divider: true

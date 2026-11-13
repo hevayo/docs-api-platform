@@ -1,0 +1,4 @@
+label: Analytics
+position: 6
+customProps:
+  divider: true

@@ -1,0 +1,8 @@
+# API Management: self-hosted.
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: api-management
+id: self-hosted
+name: API Management Self-hosted
+variables:
+  productName: WSO2 API Platform

@@ -1,0 +1,6 @@
+label: Monetization
+position: 25
+customProps:
+  icon: octicons/credit-card-16
+  divider: true
+  editions: cloud

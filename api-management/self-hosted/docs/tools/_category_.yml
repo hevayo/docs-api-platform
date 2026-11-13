@@ -1,0 +1,6 @@
+label: Tools
+position: 28
+customProps:
+  icon: octicons/terminal-16
+  divider: true
+  editions: self-hosted

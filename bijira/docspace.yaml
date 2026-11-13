@@ -1,0 +1,26 @@
+# Doc space manifest (schemas/docspace.schema.json in the Platform).
+# The Older cloud Doc space Bijira (.scratch/new-cloud-model decisions 5, 11
+# and 14): the old Cloud of API Management (wso2/docs-api-platform main's
+# MkDocs tree, live at wso2.com/bijira/docs/), split out of the shared tree by
+# tools/onboard-mkdocs/split-edition.mjs when API Management Cloud replaced it.
+schemaVersion: 1
+slug: bijira
+displayName: Bijira
+# Unlisted: in no products menu or Docs section, out of every wider search,
+# noindex and out of the sitemap; reached from the Landing page's Older cloud bar.
+listed: false
+owners:
+  team: api-management-docs
+repo: hevayo/docs-api-platform
+editLinks: true
+issues:
+  repo: wso2/docs-api-platform
+# The team notice (decision 11): a notice is plain text, so it names the new
+# Cloud rather than linking it.
+notices:
+  - level: info
+    text: These are the docs for Bijira, which came before Choreo Cloud. For Choreo Cloud's API management docs, open API Management on the docs home.
+# The old console (decision 17): the Action button API Management's Cloud had.
+cta: { icon: oxygen/bolt, label: Try it, url: "https://console.bijira.dev/login/" }
+editions:
+  - id: cloud

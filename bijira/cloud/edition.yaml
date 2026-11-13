@@ -1,0 +1,9 @@
+# Bijira: cloud.
+# Written by tools/rebuild/edition-folders.mjs (Edition layout: folders).
+schemaVersion: 1
+docSpace: bijira
+id: cloud
+name: Bijira Cloud
+variables:
+  productName: WSO2 API Platform
+  displayName: Bijira
