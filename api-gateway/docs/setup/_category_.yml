@@ -1,2 +1,4 @@
 label: Setup
-position: 2
+position: 1
+customProps:
+  divider: true
