@@ -72,17 +72,54 @@ To add a custom domain, you must have organization administrator privileges.
            <details>
            <summary>For step-by-step instructions on constructing a certificate chain with a root certificate, click here</summary>
 
-           To construct a certificate chain with a root certificate, you must organize and combine the certificates in the correct sequence. A typical certificate chain consists of the following: - \*\*Root certificate\*\*: The trusted self-signed certificate issued by the certificate authority (CA). - \*\*Intermediate certificates\*\* (if any): Certificates issued by the root CA to subordinate CAs. - \*\*Leaf certificate\*\*: Your end-entity certificate issued by the CA. This is an optional certificate that may be included within the chain or provided separately.<br /><br /> Follow these steps to construct the certificate chain: 1. Obtain and organize your certificates in the correct order: - \*\*Leaf certificate\*\*: The public certificate issued by the CA. This is optional and may be included within the chain or provided separately. - \*\*Intermediate certificates\*\*: Obtain these from the CA, if applicable. - \*\*Root certificate\*\*: Obtain this from the CA. If it is self-signed, it serves as the trust anchor. 2. Combine the certificates into a single file in the following order: - Leaf certificate: This is your public certificate issued by the CA. - Intermediate certificates if applicable: Include these in the correct hierarchical order. - Root certificate: Include this at the end of the file.<br /><br /> Use a text editor or a command-line tool to concatenate the certificates into one file, ensuring each certificate begins and ends with the proper markers. Also make sure the \`BEGIN CERTIFICATE\` and \`END CERTIFICATE\` markers appear on a new line: \`\`\` -----BEGIN CERTIFICATE-----
+           To construct a certificate chain with a root certificate, you must organize and combine the certificates in the correct sequence. A typical certificate chain consists of the following:
 
-           \<leaf\> -----END CERTIFICATE----- -----BEGIN CERTIFICATE-----
+           - **Root certificate**: The trusted self-signed certificate issued by the certificate authority (CA).
+           - **Intermediate certificates** (if any): Certificates issued by the root CA to subordinate CAs.
+           - **Leaf certificate**: Your end-entity certificate issued by the CA. This is an optional certificate that may be included within the chain or provided separately.
 
-           \<intermediate\> -----END CERTIFICATE----- -----BEGIN CERTIFICATE-----
+           Follow these steps to construct the certificate chain:
 
-           \<root\> -----END CERTIFICATE----- \`\`\` 3. Save the concatenated file. You can save it with a name such as \`certificate_chain.pem\`. 4. Use the following command to verify that your certificate chain is constructed correctly: \`\`\` openssl verify -CAfile
+           1. Obtain and organize your certificates in the correct order:
+               - **Leaf certificate**: The public certificate issued by the CA. This is optional and may be included within the chain or provided separately.
+               - **Intermediate certificates**: Obtain these from the CA, if applicable.
+               - **Root certificate**: Obtain this from the CA. If it is self-signed, it serves as the trust anchor.
+           2. Combine the certificates into a single file in the following order:
+               - Leaf certificate: This is your public certificate issued by the CA.
+               - Intermediate certificates if applicable: Include these in the correct hierarchical order.
+               - Root certificate: Include this at the end of the file.
 
-           \<root_or_bundle_cert\>.pem certificate_chain.pem \`\`\` Replace \`
+               Use a text editor or a command-line tool to concatenate the certificates into one file, ensuring each certificate begins and ends with the proper markers. Also make sure the `BEGIN CERTIFICATE` and `END CERTIFICATE` markers appear on a new line:
 
-           \<root_or_bundle_cert\>.pem\` with the path to your root certificate or a bundle containing both the root and intermediate certificates. 5. Once the certificate chain is verified, upload it via the API Platform Console: !\[Add a Custom Domain step 2 showing Import Certificate option with TLS Certificate, TLS Key File, and Certificate Chain File upload fields\](../../../assets/img/administer/settings/upload-certificate-chain.png) - If the constructed chain includes the leaf certificate, follow these steps: - Upload the constructed certificate chain in the \*\*TLS Certificate\*\* field. - Upload the private key file in the \*\*TLS Key File\*\* field. - Do not upload a certificate chain file, as it is already included in the TLS certificate. - If the constructed chain does not include the leaf certificate, follow these steps: - Upload the leaf certificate in the \*\*TLS Certificate\*\* field. - Upload the private key file in the \*\*TLS Key File\*\* field. - Upload the constructed certificate chain in the \*\*Certificate Chain File\*\* field.
+               ```
+               -----BEGIN CERTIFICATE-----
+               <leaf>
+               -----END CERTIFICATE-----
+               -----BEGIN CERTIFICATE-----
+               <intermediate>
+               -----END CERTIFICATE-----
+               -----BEGIN CERTIFICATE-----
+               <root>
+               -----END CERTIFICATE-----
+               ```
+
+           3. Save the concatenated file. You can save it with a name such as `certificate_chain.pem`.
+           4. Use the following command to verify that your certificate chain is constructed correctly:
+
+               ```
+               openssl verify -CAfile <root_or_bundle_cert>.pem certificate_chain.pem
+               ```
+
+               Replace `<root_or_bundle_cert>.pem` with the path to your root certificate or a bundle containing both the root and intermediate certificates.
+           5. Once the certificate chain is verified, upload it via the API Platform Console:
+               - If the constructed chain includes the leaf certificate, follow these steps:
+                   - Upload the constructed certificate chain in the **TLS Certificate** field.
+                   - Upload the private key file in the **TLS Key File** field.
+                   - Do not upload a certificate chain file, as it is already included in the TLS certificate.
+               - If the constructed chain does not include the leaf certificate, follow these steps:
+                   - Upload the leaf certificate in the **TLS Certificate** field.
+                   - Upload the private key file in the **TLS Key File** field.
+                   - Upload the constructed certificate chain in the **Certificate Chain File** field.
 
            </details>
 
