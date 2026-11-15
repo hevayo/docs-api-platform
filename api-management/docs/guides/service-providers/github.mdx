@@ -27,14 +27,30 @@ With the bring-your-own-key (BYOK) option, GitHub Copilot sends requests for you
 
 The Copilot guide uses an OpenAI provider.
 
-- [Configure GitHub Copilot with AI Gateway](../ai-and-mcp/ai-coding-assistants/github-copilot-configuration-with-ai-gateway.mdx) End-to-end guide
-- [Configure an LLM provider](docs:api-management/cloud/ai-workspace/llm-providers/configure-provider/#authentication) AI Workspace
+<Deployment only="hybrid">
 
-- [OpenAI provider](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/openai/) AI Gateway
+- [Configure GitHub Copilot with AI Gateway](../ai-and-mcp/ai-coding-assistants/github-copilot-configuration-with-ai-gateway.mdx) · End-to-end guide
+- [Configure an LLM provider](docs:api-management/cloud/ai-workspace/llm-providers/configure-provider/#authentication) · AI Workspace
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [OpenAI provider](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/openai/) · AI Gateway
+
+</Deployment>
+
+<Deployment only="hybrid">
 
 Routing, token limits, cost control, and the other AI Workspace policies work the same way for every provider. See the [AI Workspace overview](docs:api-management/cloud/ai-workspace/overview/).
 
+</Deployment>
+
+<Deployment only="self-hosted">
+
 Routing, token limits, cost control, and the gateway's other policies work the same way for every provider. See the [AI Gateway documentation](docs:ai-gateway/2026.09.24/overview/).
+
+</Deployment>
 
 ## GitHub repositories
 
@@ -44,7 +60,11 @@ Keep an API proxy's contract and configuration in a GitHub repository, then buil
 
 Connect a repository that holds the API contract and a `component.yaml` file.
 
-- [Create an API proxy from a GitHub repository](docs:api-management/cloud/create-api-proxy/my-apis/http/import-api-from-github/) Cloud console
+<Deployment only="cloud">
+
+- [Create an API proxy from a GitHub repository](docs:api-management/cloud/create-api-proxy/my-apis/http/import-api-from-github/) · Cloud console
+
+</Deployment>
 
 ## GitHub Copilot in VS Code
 
