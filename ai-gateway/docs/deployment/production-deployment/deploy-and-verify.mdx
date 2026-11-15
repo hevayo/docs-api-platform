@@ -284,7 +284,3 @@ helm rollback ai-gateway --namespace ai-gateway
 :::note
 The controller pod restarts during an upgrade, and AI Gateway 1.0.0 runs a single controller replica. Runtimes keep serving the configuration they already hold while the controller is down, but no artifact can be deployed or updated until it comes back. Schedule upgrades accordingly, and keep at least two runtime replicas so traffic continues to be served throughout. See [Resources and scaling](./resources-and-scaling.mdx#replica-counts).
 :::
-
----
-
-[← Tune the gateway for AI traffic](./ai-workload-tuning.mdx) &nbsp;|&nbsp; [Connect to a control plane →](./control-plane-connection.mdx)
