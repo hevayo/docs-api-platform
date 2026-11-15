@@ -281,7 +281,3 @@ helm rollback ai-gateway --namespace ai-gateway
 :::note
 Controller pods restart during an upgrade. Each runtime receives its configuration over xDiscovery Service (xDS) from a controller. Keep at least two controller replicas and two runtime replicas, so traffic continues to be served throughout. Combine this with the drain settings in [Resources and scaling](./resources-and-scaling.mdx#drain-in-flight-requests) to avoid cutting off streaming responses.
 :::
-
----
-
-[← Tune the gateway for AI traffic](./ai-workload-tuning.mdx) &nbsp;|&nbsp; [Connect to AI Workspace →](./control-plane-connection.mdx)
