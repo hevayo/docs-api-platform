@@ -27,22 +27,42 @@ Route, secure, and govern traffic to Gemini models through WSO2 AI Gateway, incl
 
 Register the Gemini API with the gateway. Applications call the gateway and never see the Gemini API key.
 
-- [Configure an LLM provider](docs:api-management/cloud/ai-workspace/llm-providers/configure-provider/#authentication) AI Workspace
-- [Call Gemini through the gateway](docs:api-management/cloud/ai-workspace/using-sdks/#gemini) AI Workspace
+<Deployment only="hybrid">
 
-- [Gemini provider](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/gemini/) AI Gateway
-- [Configure an LLM provider](docs:ai-workspace/1.0.0/llm-providers/configure-provider/#authentication) AI Workspace
+- [Configure an LLM provider](docs:api-management/cloud/ai-workspace/llm-providers/configure-provider/#authentication) · AI Workspace
+- [Call Gemini through the gateway](docs:api-management/cloud/ai-workspace/using-sdks/#gemini) · AI Workspace
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [Gemini provider](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/gemini/) · AI Gateway
+- [Configure an LLM provider](docs:ai-workspace/1.0.0/llm-providers/configure-provider/#authentication) · AI Workspace
+
+</Deployment>
 
 ### OpenAI-format requests
 
 Keep clients on the OpenAI request format. A transformer policy converts requests and responses for Gemini.
 
-- [OpenAI-format compatibility](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/gemini/#openai-format-compatibility) AI Gateway
-- [OpenAI to Gemini transformer policy](https://wso2.com/api-platform/policy-hub/policies/openai-to-gemini-transformer) Policy Hub
+<Deployment only="self-hosted">
+
+- [OpenAI-format compatibility](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/gemini/#openai-format-compatibility) · AI Gateway
+- [OpenAI to Gemini transformer policy](https://wso2.com/api-platform/policy-hub/policies/openai-to-gemini-transformer) · Policy Hub
+
+</Deployment>
+
+<Deployment only="hybrid">
 
 Routing, token limits, cost control, and the other AI Workspace policies work the same way for every provider. See the [AI Workspace overview](docs:api-management/cloud/ai-workspace/overview/).
 
+</Deployment>
+
+<Deployment only="self-hosted">
+
 Routing, token limits, cost control, and the gateway's other policies work the same way for every provider. See the [AI Gateway documentation](docs:ai-gateway/2026.09.24/overview/).
+
+</Deployment>
 
 ## Google Cloud Monitoring and Cloud Trace
 
@@ -52,11 +72,19 @@ Send the metrics and traces of a gateway you run to Google Cloud through an Open
 
 Point the collector at Cloud Monitoring for metrics and at Cloud Trace for traces.
 
-- [Send AI Gateway traces to Cloud Trace](docs:api-management/cloud/ai-gateway/observability/tracing/#cloud-native-tracing-solutions) AI Gateway
+<Deployment only="hybrid">
 
-- [Send API Gateway metrics to Cloud Monitoring](docs:api-gateway/1.2.0/observability/metrics/alternative-backends/#google-cloud-monitoring) API Gateway
-- [Send API Gateway traces to Cloud Trace](docs:api-gateway/1.2.0/observability/tracing/alternative-backends/#google-cloud-trace) API Gateway
-- [Send AI Gateway traces to Cloud Trace](docs:ai-gateway/2026.09.24/logging-and-tracing/tracing/#cloud-native-tracing-solutions) AI Gateway
+- [Send AI Gateway traces to Cloud Trace](docs:api-management/cloud/ai-gateway/observability/tracing/#cloud-native-tracing-solutions) · AI Gateway
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [Send API Gateway metrics to Cloud Monitoring](docs:api-gateway/1.2.0/observability/metrics/alternative-backends/#google-cloud-monitoring) · API Gateway
+- [Send API Gateway traces to Cloud Trace](docs:api-gateway/1.2.0/observability/tracing/alternative-backends/#google-cloud-trace) · API Gateway
+- [Send AI Gateway traces to Cloud Trace](docs:ai-gateway/2026.09.24/logging-and-tracing/tracing/#cloud-native-tracing-solutions) · AI Gateway
+
+</Deployment>
 
 ## Architecture and responsibility model
 

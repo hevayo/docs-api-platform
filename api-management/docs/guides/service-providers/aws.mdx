@@ -13,17 +13,21 @@ WSO2 API Platform works alongside the AWS services you already use. Govern AI tr
 
 Step-by-step guides for AWS. Guides are part of this documentation. Tutorials are published on the WSO2 API Platform Learn Hub and written for the product version they name.
 
-- [Use Amazon Bedrock and Bedrock Guardrails with WSO2 AI Gateway](https://wso2.com/api-platform/learn/aws-bedrock-llm-guardrails-wso2-ai-gateway/)
+### Use Amazon Bedrock and Bedrock Guardrails with WSO2 AI Gateway
 
-    Register Bedrock in AI Workspace, create an App LLM Proxy, attach a native Bedrock Guardrail, and verify request and response validation.
+Register Bedrock in AI Workspace, create an App LLM Proxy, attach a native Bedrock Guardrail, and verify request and response validation.
 
-    Learn Hub tutorial · Amazon Bedrock · Self-hosted
+Learn Hub tutorial · Amazon Bedrock · Self-hosted
 
-- [Discover and govern APIs from Amazon API Gateway](../ai-and-mcp/connect-third-party-gateways/discover-apis-from-aws-api-gateway.mdx)
+[Open the tutorial →](https://wso2.com/api-platform/learn/aws-bedrock-llm-guardrails-wso2-ai-gateway/)
 
-    Discover REST APIs on Amazon API Gateway, check compliance, and publish them to the Developer Portal.
+### Discover and govern APIs from Amazon API Gateway
 
-    Guide · Amazon API Gateway · Cloud, Hybrid
+Discover REST APIs on Amazon API Gateway, check compliance, and publish them to the Developer Portal.
+
+Guide · Amazon API Gateway · Cloud, Hybrid
+
+[Open the guide →](../ai-and-mcp/connect-third-party-gateways/discover-apis-from-aws-api-gateway.mdx)
 
 ## AI Gateway with Amazon Bedrock
 
@@ -33,39 +37,83 @@ Route, secure, and govern traffic to foundation models on Amazon Bedrock through
 
 Connect Amazon Bedrock and manage its models and credentials centrally.
 
-- [Create an AI API for Amazon Bedrock](docs:api-management/cloud/create-api-proxy/third-party-apis/awsbedrock/) Cloud console
+<Deployment only="cloud">
 
-- [Configure an LLM provider](docs:api-management/cloud/ai-workspace/llm-providers/configure-provider/) AI Workspace
+- [Create an AI API for Amazon Bedrock](docs:api-management/cloud/create-api-proxy/third-party-apis/awsbedrock/) · Cloud console
 
-- [Use Amazon Bedrock and Bedrock Guardrails with WSO2 AI Gateway](https://wso2.com/api-platform/learn/aws-bedrock-llm-guardrails-wso2-ai-gateway/) Learn Hub tutorial
-- [Amazon Bedrock provider](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/) AI Gateway
-- [Configure an LLM provider](docs:ai-workspace/1.0.0/llm-providers/configure-provider/#authentication) AI Workspace
+</Deployment>
+
+<Deployment only="hybrid">
+
+- [Configure an LLM provider](docs:api-management/cloud/ai-workspace/llm-providers/configure-provider/) · AI Workspace
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [Use Amazon Bedrock and Bedrock Guardrails with WSO2 AI Gateway](https://wso2.com/api-platform/learn/aws-bedrock-llm-guardrails-wso2-ai-gateway/) · Learn Hub tutorial
+- [Amazon Bedrock provider](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/) · AI Gateway
+- [Configure an LLM provider](docs:ai-workspace/1.0.0/llm-providers/configure-provider/#authentication) · AI Workspace
+
+</Deployment>
 
 ### AWS authentication
 
 Sign requests with AWS Signature Version 4 (SigV4) using IAM credentials, a workload role, or cross-account role assumption.
 
-- [AWS Authentication policy](https://wso2.com/api-platform/policy-hub/policies/aws-authentication) Policy Hub
+<Deployment only="hybrid">
 
-- [Choose an authentication method](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/#choose-an-authentication-method) AI Gateway
-- [AWS Authentication policy](https://wso2.com/api-platform/policy-hub/policies/aws-authentication) Policy Hub
+- [AWS Authentication policy](https://wso2.com/api-platform/policy-hub/policies/aws-authentication) · Policy Hub
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [Choose an authentication method](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/#choose-an-authentication-method) · AI Gateway
+- [AWS Authentication policy](https://wso2.com/api-platform/policy-hub/policies/aws-authentication) · Policy Hub
+
+</Deployment>
 
 ### Amazon Bedrock Guardrails
 
 Enforce the content filters, denied topics, and sensitive-information policies that you define in Amazon Bedrock on traffic through the gateway.
 
-- [AWS Bedrock Guardrail](docs:api-management/cloud/create-api-proxy/third-party-apis/guardrails/third-party-guardrail-integrations/aws-bedrock-guardrail/) Cloud console
+<Deployment only="cloud">
 
-- [AWS Bedrock Guardrail policy](https://wso2.com/api-platform/policy-hub/policies/aws-bedrock-guardrail) Policy Hub
+- [AWS Bedrock Guardrail](docs:api-management/cloud/create-api-proxy/third-party-apis/guardrails/third-party-guardrail-integrations/aws-bedrock-guardrail/) · Cloud console
 
-- [AWS Bedrock Guardrail policy](https://wso2.com/api-platform/policy-hub/policies/aws-bedrock-guardrail) Policy Hub
-- [Guardrails catalogue](docs:ai-gateway/2026.09.24/guardrails/guardrails-catalogue/) AI Gateway
+</Deployment>
+
+<Deployment only="hybrid">
+
+- [AWS Bedrock Guardrail policy](https://wso2.com/api-platform/policy-hub/policies/aws-bedrock-guardrail) · Policy Hub
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [AWS Bedrock Guardrail policy](https://wso2.com/api-platform/policy-hub/policies/aws-bedrock-guardrail) · Policy Hub
+- [Guardrails catalogue](docs:ai-gateway/2026.09.24/guardrails/guardrails-catalogue/) · AI Gateway
+
+</Deployment>
+
+<Deployment only="cloud">
 
 Token limits, semantic caching, and the other AI API policies work the same way for every provider. See [AI APIs](docs:api-management/cloud/create-api-proxy/third-party-apis/ai-apis/).
 
+</Deployment>
+
+<Deployment only="hybrid">
+
 Routing, token limits, cost control, and the other AI Workspace policies work the same way for every provider. See the [AI Workspace overview](docs:api-management/cloud/ai-workspace/overview/).
 
+</Deployment>
+
+<Deployment only="self-hosted">
+
 Routing, token limits, cost control, and the gateway's other policies work the same way for every provider. See the [AI Gateway documentation](docs:ai-gateway/2026.09.24/overview/).
+
+</Deployment>
 
 :::warning[Before you go to production]
 - **Credentials:** give the gateway its own IAM identity with access only to the models it needs, and never give Bedrock credentials to a client application. On a gateway you run, prefer temporary credentials or an AWS workload role over long-term keys.
@@ -80,16 +128,24 @@ Manage the APIs you run on Amazon API Gateway from the WSO2 control plane. WSO2 
 
 Import APIs that already run on Amazon API Gateway and check their compliance.
 
-- [Discover and govern APIs from Amazon API Gateway](../ai-and-mcp/connect-third-party-gateways/discover-apis-from-aws-api-gateway.mdx) End-to-end guide
-- [Discover APIs from Amazon API Gateway](docs:api-management/cloud/federation/api-discovery-aws/) Cloud console
-- [Gateway federation overview](docs:api-management/cloud/federation/overview/) Cloud console
+<Deployment only="cloud hybrid">
+
+- [Discover and govern APIs from Amazon API Gateway](../ai-and-mcp/connect-third-party-gateways/discover-apis-from-aws-api-gateway.mdx) · End-to-end guide
+- [Discover APIs from Amazon API Gateway](docs:api-management/cloud/federation/api-discovery-aws/) · Cloud console
+- [Gateway federation overview](docs:api-management/cloud/federation/overview/) · Cloud console
+
+</Deployment>
 
 ### Publish discovered APIs
 
 Move a discovered API through its lifecycle and make it available in the Developer Portal.
 
-- [Manage the API lifecycle](docs:api-management/cloud/develop-api-proxy/lifecycle-management/) Cloud console
-- [Discover APIs in the Developer Portal](docs:api-management/cloud/devportal/discover-apis/api-search/) Cloud console
+<Deployment only="cloud hybrid">
+
+- [Manage the API lifecycle](docs:api-management/cloud/develop-api-proxy/lifecycle-management/) · Cloud console
+- [Discover APIs in the Developer Portal](docs:api-management/cloud/devportal/discover-apis/api-search/) · Cloud console
+
+</Deployment>
 
 :::warning[Credentials]
 The gateway connection uses the access key of an AWS Identity and Access Management (IAM) user. The guide attaches the AWS managed `AmazonAPIGatewayAdministrator` policy, which grants more than read access to your APIs. Create a dedicated IAM user for this connection only, store its secret access key in a secrets manager, rotate the key regularly, and deactivate it when you remove the gateway. Never use root account credentials.
@@ -103,34 +159,54 @@ Run the gateway on your own AWS infrastructure, give it an AWS identity, and sen
 
 The Kubernetes deployment docs aren't specific to AWS, but they apply to Amazon Elastic Kubernetes Service (Amazon EKS).
 
-- [Set up a self-hosted gateway](docs:api-management/cloud/api-platform-gateway/setting-up/) Cloud console
-- [Set up an AI Gateway](docs:api-management/cloud/ai-workspace/ai-gateways/setting-up/) AI Workspace
+<Deployment only="hybrid">
 
-- [Kubernetes deployment modes](docs:ai-gateway/2026.09.24/setup-and-deployment/kubernetes/) AI Gateway
-- [Kubernetes Operator](docs:ai-gateway/2026.09.24/setup-and-deployment/kubernetes/gateway-operator/) AI Gateway
-- [Production deployment](docs:ai-gateway/2026.09.24/setup-and-deployment/production-deployment/) AI Gateway
-- [Security hardening](docs:ai-gateway/2026.09.24/setup-and-deployment/production-deployment/security-hardening/) AI Gateway
-- [Performance benchmarks on EKS](docs:api-gateway/1.2.0/performance/overview/) API Gateway
+- [Set up a self-hosted gateway](docs:api-management/cloud/api-platform-gateway/setting-up/) · Cloud console
+- [Set up an AI Gateway](docs:api-management/cloud/ai-workspace/ai-gateways/setting-up/) · AI Workspace
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [Kubernetes deployment modes](docs:ai-gateway/2026.09.24/setup-and-deployment/kubernetes/) · AI Gateway
+- [Kubernetes Operator](docs:ai-gateway/2026.09.24/setup-and-deployment/kubernetes/gateway-operator/) · AI Gateway
+- [Production deployment](docs:ai-gateway/2026.09.24/setup-and-deployment/production-deployment/) · AI Gateway
+- [Security hardening](docs:ai-gateway/2026.09.24/setup-and-deployment/production-deployment/security-hardening/) · AI Gateway
+- [Performance benchmarks on EKS](docs:api-gateway/1.2.0/performance/overview/) · API Gateway
+
+</Deployment>
 
 ### Workload identity
 
 Give each gateway workload a dedicated IAM role. For EKS, prefer EKS Pod Identity, and use IAM roles for service accounts (IRSA) as a supported alternative.
 
-- [Default AWS credential chain](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/#default-credential-chain) AI Gateway
-- [IAM roles for service accounts](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/#iam-roles-for-service-accounts) AI Gateway
-- [AWS STS role assumption](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/#sts-assumerole) AI Gateway
+<Deployment only="self-hosted">
+
+- [Default AWS credential chain](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/#default-credential-chain) · AI Gateway
+- [IAM roles for service accounts](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/#iam-roles-for-service-accounts) · AI Gateway
+- [AWS STS role assumption](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/aws-bedrock/#sts-assumerole) · AI Gateway
+
+</Deployment>
 
 ### Amazon CloudWatch and AWS X-Ray
 
 Export gateway logs, metrics, and traces through Fluent Bit, an OpenTelemetry Collector, or AWS Distro for OpenTelemetry (ADOT).
 
-- [Send AI Gateway logs to CloudWatch](docs:api-management/cloud/ai-gateway/observability/logging/#cloud-native-solutions) AI Gateway
-- [Send AI Gateway traces to X-Ray](docs:api-management/cloud/ai-gateway/observability/tracing/#cloud-native-tracing-solutions) AI Gateway
+<Deployment only="hybrid">
 
-- [Send AI Gateway logs to CloudWatch](docs:ai-gateway/2026.09.24/logging-and-tracing/gateway-logs/#cloud-native-solutions) AI Gateway
-- [Send AI Gateway traces to X-Ray](docs:ai-gateway/2026.09.24/logging-and-tracing/tracing/#cloud-native-tracing-solutions) AI Gateway
-- [Send API Gateway metrics to CloudWatch](docs:api-gateway/1.2.0/observability/metrics/alternative-backends/#aws-cloudwatch) API Gateway
-- [Send API Gateway traces to X-Ray](docs:api-gateway/1.2.0/observability/tracing/alternative-backends/#aws-x-ray) API Gateway
+- [Send AI Gateway logs to CloudWatch](docs:api-management/cloud/ai-gateway/observability/logging/#cloud-native-solutions) · AI Gateway
+- [Send AI Gateway traces to X-Ray](docs:api-management/cloud/ai-gateway/observability/tracing/#cloud-native-tracing-solutions) · AI Gateway
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [Send AI Gateway logs to CloudWatch](docs:ai-gateway/2026.09.24/logging-and-tracing/gateway-logs/#cloud-native-solutions) · AI Gateway
+- [Send AI Gateway traces to X-Ray](docs:ai-gateway/2026.09.24/logging-and-tracing/tracing/#cloud-native-tracing-solutions) · AI Gateway
+- [Send API Gateway metrics to CloudWatch](docs:api-gateway/1.2.0/observability/metrics/alternative-backends/#aws-cloudwatch) · API Gateway
+- [Send API Gateway traces to X-Ray](docs:api-gateway/1.2.0/observability/tracing/alternative-backends/#aws-x-ray) · API Gateway
+
+</Deployment>
 
 ## Architecture and responsibility model
 

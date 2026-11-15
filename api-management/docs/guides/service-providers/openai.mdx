@@ -27,31 +27,63 @@ Route, secure, and govern traffic to OpenAI models through WSO2 AI Gateway, incl
 
 Register the OpenAI API with the gateway. The gateway keeps the API key, not your applications.
 
-- [Create an AI API for OpenAI](docs:api-management/cloud/create-api-proxy/third-party-apis/open-ai/) Cloud console
+<Deployment only="cloud">
 
-- [Configure an LLM provider](docs:api-management/cloud/ai-workspace/llm-providers/configure-provider/#authentication) AI Workspace
-- [Call OpenAI through the gateway](docs:api-management/cloud/ai-workspace/using-sdks/#openai) AI Workspace
+- [Create an AI API for OpenAI](docs:api-management/cloud/create-api-proxy/third-party-apis/open-ai/) · Cloud console
 
-- [OpenAI provider](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/openai/) AI Gateway
-- [Configure an LLM provider](docs:ai-workspace/1.0.0/llm-providers/configure-provider/#authentication) AI Workspace
+</Deployment>
+
+<Deployment only="hybrid">
+
+- [Configure an LLM provider](docs:api-management/cloud/ai-workspace/llm-providers/configure-provider/#authentication) · AI Workspace
+- [Call OpenAI through the gateway](docs:api-management/cloud/ai-workspace/using-sdks/#openai) · AI Workspace
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [OpenAI provider](docs:ai-gateway/2026.09.24/gateway-artifacts/llm-provider/supported-providers/openai/) · AI Gateway
+- [Configure an LLM provider](docs:ai-workspace/1.0.0/llm-providers/configure-provider/#authentication) · AI Workspace
+
+</Deployment>
 
 ### Semantic caching and guardrails
 
 Semantic caching and the semantic prompt guard compare prompts by meaning, and can use an OpenAI embedding model that you set in the policy or gateway configuration.
 
-- [Semantic cache policy](docs:api-management/cloud/ai-workspace/policies/other-policies/semantic-cache/) AI Workspace
-- [Semantic prompt guard policy](https://wso2.com/api-platform/policy-hub/policies/semantic-prompt-guard) Policy Hub
+<Deployment only="hybrid">
 
-- [Semantic caching](docs:ai-gateway/2026.09.24/semantic-caching/) AI Gateway
-- [Embedding providers for semantic caching](docs:ai-gateway/2026.09.24/setup-and-deployment/production-deployment/ai-workload-tuning/#provision-infrastructure-for-semantic-caching) AI Gateway
-- [Semantic Cache policy](https://wso2.com/api-platform/policy-hub/policies/semantic-cache) Policy Hub
-- [Semantic prompt guard policy](https://wso2.com/api-platform/policy-hub/policies/semantic-prompt-guard) Policy Hub
+- [Semantic cache policy](docs:api-management/cloud/ai-workspace/policies/other-policies/semantic-cache/) · AI Workspace
+- [Semantic prompt guard policy](https://wso2.com/api-platform/policy-hub/policies/semantic-prompt-guard) · Policy Hub
+
+</Deployment>
+
+<Deployment only="self-hosted">
+
+- [Semantic caching](docs:ai-gateway/2026.09.24/semantic-caching/) · AI Gateway
+- [Embedding providers for semantic caching](docs:ai-gateway/2026.09.24/setup-and-deployment/production-deployment/ai-workload-tuning/#provision-infrastructure-for-semantic-caching) · AI Gateway
+- [Semantic Cache policy](https://wso2.com/api-platform/policy-hub/policies/semantic-cache) · Policy Hub
+- [Semantic prompt guard policy](https://wso2.com/api-platform/policy-hub/policies/semantic-prompt-guard) · Policy Hub
+
+</Deployment>
+
+<Deployment only="cloud">
 
 Token limits, semantic caching, and the other AI API policies work the same way for every provider. See [AI APIs](docs:api-management/cloud/create-api-proxy/third-party-apis/ai-apis/).
 
+</Deployment>
+
+<Deployment only="hybrid">
+
 Routing, token limits, cost control, and the other AI Workspace policies work the same way for every provider. See the [AI Workspace overview](docs:api-management/cloud/ai-workspace/overview/).
 
+</Deployment>
+
+<Deployment only="self-hosted">
+
 Routing, token limits, cost control, and the gateway's other policies work the same way for every provider. See the [AI Gateway documentation](docs:ai-gateway/2026.09.24/overview/).
+
+</Deployment>
 
 ## Architecture and responsibility model
 
